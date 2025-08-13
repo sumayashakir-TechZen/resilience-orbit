@@ -1,0 +1,36 @@
+Resilience Orbit™ — Executive Scorecard (1‑Pager) Guide
+Purpose: A single-page, board-ready snapshot to show resilience outcomes, risks, and next-step focus for this orbit (e.g., every 21 days). Keep it concise and decision-oriented.
+
+Structure (in order):
+1) Executive Snapshot (4 one‑liners)
+   • Biggest Win — business outcome, not tech jargon.
+   • Top Risk — what could go wrong next, with impact.
+   • Next Orbit Focus — the #1 thing we’ll ship.
+   • Decision Needed — Y/N and the ask (budget, people, policy).
+
+2) KPIs (grouped)
+   • Platform Health — Availability, Error Rate, p95 Latency.
+   • Incident Readiness — MTTR, MTTD, Sev1/2 count.
+   • Automation & Self‑Healing — Coverage %, Auto‑remediations #, Chaos Pass %.
+   • Customer Impact — % Transactions Affected, Refunds/Comp % revenue.
+   • Compliance & Risk — Critical Vulns #, Days to Remediate, Exceptions #.
+   • Investment & ROI — Hours Saved, $ Avoided, Effort (FTE‑weeks).
+
+RAG Defaults (tune as needed):
+   • Availability: Green ≥ Target; Amber ≥ Target − 0.05 pp; else Red.
+   • MTTR / MTTD: Green ≤ Target; Amber ≤ 120% of Target; else Red.
+   • Automation Coverage: Green ≥ Target; Amber within 10 pp; else Red.
+   • Chaos Pass Rate: Green ≥ 90%; Amber 70–89%; Red < 70%.
+   • Transactions Affected & Refunds: Green ≤ Target; Amber ≤ 150% of Target; else Red.
+
+Tips for Presenters:
+   • Lead with outcomes and risks; park details in appendix.
+   • Use one sentence per commentary; max 120 characters.
+   • Do not change KPIs frequently — trends matter.
+   • Keep owners on the page to show accountability.
+   • If a KPI is Red twice in a row, it becomes a P1 for the next orbit.
+
+How to Use the CSV:
+   • Fill the SAMPLE once to align on thresholds and language.
+   • Share the TEMPLATE each orbit; keep the format unchanged for comparability.
+   • Convert to PDF for exec distribution (print-friendly, 1 page).

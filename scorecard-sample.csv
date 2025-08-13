@@ -1,0 +1,22 @@
+Category,KPI,Definition (exec-friendly one-liner),Target,This Orbit,Variance (This - Target),Trend vs Last Orbit (Up/Flat/Down),Status (Green/Amber/Red),Commentary (≤120 chars),Data Source/System,Owner
+Executive Snapshot,Biggest Win,Single sentence describing the most impactful outcome this orbit,,,,,,MTTR dropped 24% after alert routing + runbook automation.,,
+Executive Snapshot,Top Risk,Highest severity risk with clear business impact,,,,,,Currency conversion failover not automated; could block checkout in multi-currency.,,
+Executive Snapshot,Next Orbit Focus,One-liner: the #1 thing we will ship next orbit,,,,,,Ship auto failover for currency service + add Tier-2 chaos coverage.,,
+Executive Snapshot,Decision Needed,Y/N and 1 sentence on what execs need to decide,,,,,,Yes — approve $12k for synthetic monitoring expansion (Year 1).,,
+Platform Health,Availability (%),Observed uptime for Tier-1 services,99.9%,99.97%,+0.07 pp,Up,Green,One minor planned test; no customer downtime.,Observability / APM,SRE Lead
+Platform Health,Error Rate (per 1k req),"p95 error rate per 1,000 requests",<= 2,1.4,+0.6 better,Up,Green,Error budget healthy after idempotent retries.,APM / Logs,App Eng Lead
+Platform Health,Latency p95 (ms),95th percentile end-to-end latency,<= 300,280,+20 better,Flat,Green,Latency stable during chaos runs.,APM / Traces,Platform Eng
+Incident Readiness,MTTR (min),Mean time to recover across Sev-1/2 incidents,<= 8,6.5,-1.5 better,Up,Green,Runbook + canary rollback reduced recovery time.,Incident Mgmt,SRE Lead
+Incident Readiness,MTTD (min),Mean time to detect from incident start to alert,<= 3,2.2,-0.8 better,Up,Green,Synthetics cover payment gateway and callbacks.,Monitoring,NOC
+Incident Readiness,Incident Volume (Sev1/2),Count of Sev-1/2 incidents this orbit,<= 2,1,Within target,Flat,Green,Single Sev-2 during planned failover test.,Incident Mgmt,Ops Manager
+Automation & Self-Healing,Auto-Remediation Coverage (%),Share of top 10 failure modes with automation,>= 60%,62%,+2 pp,Up,Amber,Coverage just over threshold; expand to currency svc.,Runbooks / CMDB,DevOps
+Automation & Self-Healing,Successful Auto-Remediations (#),Number of incidents resolved by automation,>= 10,13,+3,Up,Green,Retries + circuit breakers handled 13 incidents.,APM / Incident Mgmt,DevOps
+Automation & Self-Healing,Chaos Pass Rate (%),Share of chaos tests passed within SLO,>= 90%,88%,-2 pp,Down,Amber,Edge case on DB pool warm-up failed; fix queued.,Chaos Platform,SRE Lead
+Customer Impact,Transactions Affected (%),Percent of transactions impacted by incidents,<= 0.05%,0.01%,+0.04 pp headroom,Flat,Green,Minimal impact during planned tests.,Payments / Analytics,Data Eng
+Customer Impact,Refunds/Comp (% Rev),Refunds or comp as a percent of revenue,<= 0.10%,0.03%,+0.07 pp headroom,Flat,Green,Proactive messaging avoided refunds.,Finance / Billing,Finance Ops
+Compliance & Risk,Critical Vulns Open (#),Count of unresolved critical security issues,0,1,-1 needed,Flat,Red,Critical vuln in auth lib; patch scheduled next orbit.,Security Scanner,AppSec
+Compliance & Risk,Mean Days to Remediate Criticals,Average days to close critical vulns,<= 7,9,+2 over,Down,Amber,Blocked by vendor patch window; temporary compensating control.,Security Tracker,AppSec
+Compliance & Risk,Compliance Exceptions (#),Open PCI/PII exceptions with risk acceptance,<= 0,0,On target,Flat,Green,No open exceptions.,GRC,GRC Lead
+Investment & ROI,Automation Hours Saved (hrs),Estimated manual hours avoided via automation,>= 8,14,+6,Up,Green,Runbook automation saved on-call time.,Jira / Estimates,PMO
+Investment & ROI,$ Avoided Incidents (est.),Financial impact avoided via resilience measures,">= $25,000","$42,500","+$17,500",Up,Green,Based on prior incident cost baseline.,Finance / SRE,Finance Ops
+Investment & ROI,Effort This Orbit (FTE-weeks),Delivery effort invested this orbit,<= 6,5,+1 headroom,Flat,Green,Stayed within capacity while shipping resilience work.,PMO / Jira,PM
