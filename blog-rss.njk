@@ -1,0 +1,22 @@
+---
+permalink: "blog/rss.xml"
+eleventyExcludeFromCollections: true
+---
+{% set posts = collections.posts | head(20) %}
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+  <title>Resilience Orbit</title>
+  <link>https://resilienceorbit.com</link>
+  <description>Resilience engineering insights.</description>
+  {% for post in posts %}
+  <item>
+    <title>{{ post.data.title }}</title>
+    <link>https://resilienceorbit.com{{ post.url }}</link>
+    <guid>https://resilienceorbit.com{{ post.url }}</guid>
+    <pubDate>{{ post.date | dateToRfc822 }}</pubDate>
+    <description><![CDATA[ {{ post.data.summary }} ]]></description>
+  </item>
+  {% endfor %}
+</channel>
+</rss>
