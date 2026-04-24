@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Foundations: The Resilience Orbit Model (21-Day Loop)</title>
+  <meta name="description" content="Resilience engineering playbooks for technology leaders"/>
+
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="Foundations: The Resilience Orbit Model (21-Day Loop)"/>
+  <meta property="og:description" content=""/>
+  <meta property="og:url" content="https://resilienceorbit.com/blog/2025-Foundations-Resilience-Orbit/"/>
+  <meta property="og:image" content="/assets/og-default.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+
+  <link rel="alternate" type="application/rss+xml" title="Resilience Orbit RSS" href="/blog/rss.xml"/>
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/assets/site.css"/>
+
+  <style>
+    :root { --bg:#0B1020; --panel:#0F172A; --ink:#E5E7EB; --muted:#94A3B8; --brand:#6366F1; --brand2:#22D3EE; --stroke:rgba(255,255,255,.12); --stroke2:rgba(255,255,255,.18); }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; color:var(--ink); background:#0B1020; }
+    .container { max-width:1100px; margin:0 auto; padding:24px 16px; }
+    a { color:inherit; text-decoration:none; }
+    nav a { font-weight:600; }
+    header { padding: 32px 0 12px; }
+    footer { padding:22px; text-align:center; color:var(--muted); font-size:13px; }
+  </style>
+</head>
+
+<body>
+  <header class="container">
+    <nav style="display:flex;gap:14px;flex-wrap:wrap;font-size:14px;">
+      <a href="/">Home</a>
+      <a href="/framework/">Framework</a>
+      <a href="/about/">About</a>
+      <a href="/blog.html">Blog</a>
+      <a class="badge" href="/blog/rss.xml" style="padding:6px 10px;border-radius:999px;border:1px solid var(--stroke2);background:rgba(255,255,255,.06);">RSS</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <article>
+  <h1>Foundations: The Resilience Orbit Model (21-Day Loop)</h1>
+  <p class="muted">Wed Aug 20 2025 00:00:00 GMT+0000 (Coordinated Universal Time)</p>
+  <div class="post-body">
+    <p><strong>Why this exists:</strong> Most teams talk about resilience after an incident. Orbit moves it <strong>before</strong> the incident with a tight, repeatable loop.</p>
+<h2>The 21‑Day Loop</h2>
+<ol>
+<li><strong>Anticipate</strong> — pick <em>one</em> service + <em>one</em> failure mode. Define the desired outcome and metric.</li>
+<li><strong>Fortify</strong> — ship a <strong>self‑healing</strong> safeguard (flag/rollback/circuit breaker/retry with backoff).</li>
+<li><strong>Validate</strong> — run a targeted <strong>chaos check</strong> in prod‑like. Prove detection, mitigation, recovery.</li>
+<li><strong>Evolve</strong> — publish a one‑page <strong>executive scorecard</strong> and queue the next two actions.</li>
+</ol>
+<h2>Minimal Artifacts (copy these into your system)</h2>
+<ul>
+<li><strong>PR checks:</strong> runbook link • SLO impact • alert maps to a human • rollback/flag path.</li>
+<li><strong>DoD add‑ons:</strong> runbook updated • alert owner set • SLO tile visible • probe passes.</li>
+<li><strong>Scorecard:</strong> Availability • MTTR • Automations shipped • Tested failure modes.</li>
+</ul>
+<h2>What “good” looks like</h2>
+<ul>
+<li>Small, boring improvements every cycle.</li>
+<li>Visible SLO impact within 1–2 loops.</li>
+<li>Execs see <strong>risk down / speed up</strong> on one page.</li>
+</ul>
+<blockquote>
+<p>Start tiny. A 2% recovery improvement every loop beats a once‑a‑year rewrite.</p>
+</blockquote>
+
+  </div>
+
+  
+  <p class="tags">Tags:
+    
+      <a href="/blog/tags/foundations/">foundations</a>, 
+    
+      <a href="/blog/tags/operating-model/">operating-model</a>, 
+    
+      <a href="/blog/tags/sre/">sre</a>, 
+    
+      <a href="/blog/tags/leadership/">leadership</a>
+    
+  </p>
+  
+
+  <hr/>
+  <p><a href="/blog/">← Back to all posts</a></p>
+</article>
+
+  </main>
+
+  <footer>
+    © 2026 Resilience Orbit™.
+    <a href="/about/">About</a> • <a href="/framework/">Framework</a> • <a href="/blog/">Blog</a>
+  </footer>
+</body>
+</html>

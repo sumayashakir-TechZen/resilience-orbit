@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Case Study: 90‑Minute Chaos Day for Payments</title>
+  <meta name="description" content="Resilience engineering playbooks for technology leaders"/>
+
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="Case Study: 90‑Minute Chaos Day for Payments"/>
+  <meta property="og:description" content=""/>
+  <meta property="og:url" content="https://resilienceorbit.com/blog/2025-Case-Study-Chaos-Day-Payments/"/>
+  <meta property="og:image" content="/assets/og-default.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+
+  <link rel="alternate" type="application/rss+xml" title="Resilience Orbit RSS" href="/blog/rss.xml"/>
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/assets/site.css"/>
+
+  <style>
+    :root { --bg:#0B1020; --panel:#0F172A; --ink:#E5E7EB; --muted:#94A3B8; --brand:#6366F1; --brand2:#22D3EE; --stroke:rgba(255,255,255,.12); --stroke2:rgba(255,255,255,.18); }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; color:var(--ink); background:#0B1020; }
+    .container { max-width:1100px; margin:0 auto; padding:24px 16px; }
+    a { color:inherit; text-decoration:none; }
+    nav a { font-weight:600; }
+    header { padding: 32px 0 12px; }
+    footer { padding:22px; text-align:center; color:var(--muted); font-size:13px; }
+  </style>
+</head>
+
+<body>
+  <header class="container">
+    <nav style="display:flex;gap:14px;flex-wrap:wrap;font-size:14px;">
+      <a href="/">Home</a>
+      <a href="/framework/">Framework</a>
+      <a href="/about/">About</a>
+      <a href="/blog.html">Blog</a>
+      <a class="badge" href="/blog/rss.xml" style="padding:6px 10px;border-radius:999px;border:1px solid var(--stroke2);background:rgba(255,255,255,.06);">RSS</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <article>
+  <h1>Case Study: 90‑Minute Chaos Day for Payments</h1>
+  <p class="muted">Wed Aug 20 2025 00:00:00 GMT+0000 (Coordinated Universal Time)</p>
+  <div class="post-body">
+    <p><strong>Context:</strong> Checkout intermittently failed when the payment gateway spiked latency.</p>
+<h3>Goal (Anticipate)</h3>
+<ul>
+<li>Improve <strong>checkout success</strong> and reduce <strong>MTTR</strong> for gateway incidents.</li>
+</ul>
+<h3>Fortify (Ship)</h3>
+<ul>
+<li>Added <strong>timeout + jittered retries</strong>, <strong>idempotent keys</strong>, and a <strong>degrade flag</strong> to queue captures.</li>
+<li>Playbook: <em>“If gateway &gt; p95 1.5s for 5m, flip to degrade; auto‑reconcile within 6h.”</em></li>
+</ul>
+<h3>Validate (Chaos)</h3>
+<ul>
+<li>Fault: inject 30% 5xx + 1s latency to gateway sandbox.</li>
+<li>Expected: user completes checkout; capture is queued; ops alert fires once; dashboards show spike.</li>
+</ul>
+<h3>Evolve (Scorecard)</h3>
+<ul>
+<li>+1.6% <strong>auth success</strong> during stress windows.</li>
+<li><strong>MTTR −22%</strong> (alert → action via one‑click flag in runbook).</li>
+<li>Next: automate traffic shift to secondary provider at 3× latency.</li>
+</ul>
+<p><strong>Takeaway:</strong> a 90‑minute, focused chaos day can move real business metrics without drama.</p>
+
+  </div>
+
+  
+  <p class="tags">Tags:
+    
+      <a href="/blog/tags/posts/">posts</a>, 
+    
+      <a href="/blog/tags/case-study/">case-study</a>, 
+    
+      <a href="/blog/tags/chaos/">chaos</a>, 
+    
+      <a href="/blog/tags/payments/">payments</a>, 
+    
+      <a href="/blog/tags/slo/">slo</a>
+    
+  </p>
+  
+
+  <hr/>
+  <p><a href="/blog/">← Back to all posts</a></p>
+</article>
+
+  </main>
+
+  <footer>
+    © 2026 Resilience Orbit™.
+    <a href="/about/">About</a> • <a href="/framework/">Framework</a> • <a href="/blog/">Blog</a>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Pattern: Graceful Degradation &gt; All‑or‑Nothing</title>
+  <meta name="description" content="Resilience engineering playbooks for technology leaders"/>
+
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="Pattern: Graceful Degradation &gt; All‑or‑Nothing"/>
+  <meta property="og:description" content=""/>
+  <meta property="og:url" content="https://resilienceorbit.com/blog/2025-Pattern-Graceful-Degradation/"/>
+  <meta property="og:image" content="/assets/og-default.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+
+  <link rel="alternate" type="application/rss+xml" title="Resilience Orbit RSS" href="/blog/rss.xml"/>
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/assets/site.css"/>
+
+  <style>
+    :root { --bg:#0B1020; --panel:#0F172A; --ink:#E5E7EB; --muted:#94A3B8; --brand:#6366F1; --brand2:#22D3EE; --stroke:rgba(255,255,255,.12); --stroke2:rgba(255,255,255,.18); }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; color:var(--ink); background:#0B1020; }
+    .container { max-width:1100px; margin:0 auto; padding:24px 16px; }
+    a { color:inherit; text-decoration:none; }
+    nav a { font-weight:600; }
+    header { padding: 32px 0 12px; }
+    footer { padding:22px; text-align:center; color:var(--muted); font-size:13px; }
+  </style>
+</head>
+
+<body>
+  <header class="container">
+    <nav style="display:flex;gap:14px;flex-wrap:wrap;font-size:14px;">
+      <a href="/">Home</a>
+      <a href="/framework/">Framework</a>
+      <a href="/about/">About</a>
+      <a href="/blog.html">Blog</a>
+      <a class="badge" href="/blog/rss.xml" style="padding:6px 10px;border-radius:999px;border:1px solid var(--stroke2);background:rgba(255,255,255,.06);">RSS</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <article>
+  <h1>Pattern: Graceful Degradation &gt; All‑or‑Nothing</h1>
+  <p class="muted">Wed Aug 20 2025 00:00:00 GMT+0000 (Coordinated Universal Time)</p>
+  <div class="post-body">
+    <p>Most outages are <strong>partial</strong>. Design for partial value, not binary uptime.</p>
+<h2>Where to apply</h2>
+<ul>
+<li><strong>Payments:</strong> allow cart creation and <em>delayed capture</em> when gateway is flaky.</li>
+<li><strong>Search:</strong> fallback to cached results if ranking model is down.</li>
+<li><strong>Notifications:</strong> queue and <strong>show status</strong> instead of failing user actions.</li>
+</ul>
+<h2>Implementation quickstart</h2>
+<ul>
+<li><strong>Flag:</strong> <code>degrade_mode</code> (on/off/percent rollout).</li>
+<li><strong>Fallbacks:</strong> cache, read‑only mode, stale‑while‑revalidate, queue + later reconcile.</li>
+<li><strong>UX:</strong> expose a <strong>status chip</strong> (“queued”, “limited mode”) + retry affordance.</li>
+<li><strong>Limits:</strong> guardrails on retries, timeouts, max queue age.</li>
+</ul>
+<pre><code class="language-pseudo">if gateway.timeout():
+  flag.on(&quot;degrade_mode&quot;)
+  order.authorizeLater()   # queue
+  ui.badge(&quot;Payment queued&quot;)
+else:
+  charge()
+</code></pre>
+<h2>Validate (chaos)</h2>
+<ul>
+<li>Inject latency/5xx on the dependency.</li>
+<li>Verify: user can still complete the core flow; reconciliation succeeds; alerts fire once.</li>
+</ul>
+<p><strong>KPI lift:</strong> task completion rate during incidents, fewer hard failures, lower MTTR.</p>
+
+  </div>
+
+  
+  <p class="tags">Tags:
+    
+      <a href="/blog/tags/pattern/">pattern</a>, 
+    
+      <a href="/blog/tags/graceful-degradation/">graceful-degradation</a>, 
+    
+      <a href="/blog/tags/architecture/">architecture</a>, 
+    
+      <a href="/blog/tags/feature-flags/">feature-flags</a>
+    
+  </p>
+  
+
+  <hr/>
+  <p><a href="/blog/">← Back to all posts</a></p>
+</article>
+
+  </main>
+
+  <footer>
+    © 2026 Resilience Orbit™.
+    <a href="/about/">About</a> • <a href="/framework/">Framework</a> • <a href="/blog/">Blog</a>
+  </footer>
+</body>
+</html>
