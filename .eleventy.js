@@ -4,6 +4,7 @@ module.exports = function (eleventyConfig) {
       input: "content",
       includes: "../_includes",
       output: "_site"
-    }
+    },
+    pathPrefix: "/"
   };
 };
