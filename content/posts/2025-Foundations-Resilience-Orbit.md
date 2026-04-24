@@ -3,7 +3,7 @@ title: "Foundations: The Resilience Orbit Model (21-Day Loop)"
 date: 2025-08-20
 summary: "One deliberate loop to make resilience measurable, sustainable, and fast."
 tags: ["foundations","operating-model","sre","leadership"]
-layout: "_includes/post.njk"
+layout: post.njk
 ---
 
 **Why this exists:** Most teams talk about resilience after an incident. Orbit moves it **before** the incident with a tight, repeatable loop.
